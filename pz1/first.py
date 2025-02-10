@@ -16,6 +16,5 @@ obj2 = InstanceCounter()
 obj3 = InstanceCounter()
 print(InstanceCounter.get_count())
 
-
 del obj1
 print(InstanceCounter.get_count())
