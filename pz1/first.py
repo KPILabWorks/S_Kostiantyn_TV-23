@@ -1,17 +1,17 @@
 # 21 Реалізувати клас, який веде облік створених об'єктів.
 
 class InstanceCounter:
-    _count = 0
+    count = 0
 
     def __init__(self):
-        type(self)._count += 1
+        type(self).count += 1
 
     @classmethod
     def get_count(cls):
-        return cls._count
+        return cls.count
 
     def __del__(self):
-        type(self)._count -= 1
+        type(self).count -= 1
 
 obj1 = InstanceCounter()
 obj2 = InstanceCounter()
