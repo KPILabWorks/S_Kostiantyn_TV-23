@@ -7,6 +7,8 @@ import os
 import pandas as pd
 import numpy as np
 
+# Варіант 21. Використовуючи PyArrow, реалізуйте обробку великих таблиць з даними енергетичних споживань без перевантаження пам'яті.
+# Оцініть ефективність обробки великих таблиць на основі часу виконання та використання пам'яті.
 
 def get_memory_usage():
     process = psutil.Process(os.getpid())
@@ -26,7 +28,7 @@ def process_large_table(file_path):
     start_time = time.time()
     start_mem = get_memory_usage()
 
-    read_options = pc.ReadOptions(use_threads=True, block_size=10 ** 6)
+    read_options = pc.ReadOptions(use_threads=True, block_size=10 ** 6)  # Читаємо блоками
     convert_options = pc.ConvertOptions(column_types={"energy_consumption": pa.float64()})
 
     table = pc.read_csv(file_path, read_options=read_options, convert_options=convert_options)
@@ -41,6 +43,7 @@ def process_large_table(file_path):
     print(f"Використана пам'ять: {end_mem - start_mem:.2f} МБ")
 
 file_path = "large_energy_data.csv"
-generate_large_energy_file(file_path)
+generate_large_energy_file(file_path, num_rows=10 ** 7)
 
 process_large_table(file_path)
+
