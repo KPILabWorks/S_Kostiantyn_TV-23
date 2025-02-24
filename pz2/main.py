@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 np.random.seed(42)
-n = 10**6  # 1 мільйон записів
+n = 10**6
 data = {
     'id': np.arange(n),
     'value': np.random.rand(n) * 1000,
@@ -14,6 +14,8 @@ data = {
 df = pd.DataFrame(data)
 
 df['category'] = df['category'].astype('category')
+
+df['price'] = np.random.rand(n) * 100
 
 def categorize(value):
     if value < 250:

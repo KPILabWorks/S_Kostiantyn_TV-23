@@ -28,7 +28,7 @@ def process_large_table(file_path):
     start_time = time.time()
     start_mem = get_memory_usage()
 
-    read_options = pc.ReadOptions(use_threads=True, block_size=10 ** 6)  # Читаємо блоками
+    read_options = pc.ReadOptions(use_threads=True, block_size=10 ** 6)
     convert_options = pc.ConvertOptions(column_types={"energy_consumption": pa.float64()})
 
     table = pc.read_csv(file_path, read_options=read_options, convert_options=convert_options)
