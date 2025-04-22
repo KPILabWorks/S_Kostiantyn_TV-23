@@ -46,8 +46,8 @@ x = np.arange(len(formats))
 width = 0.4
 
 fig, ax = plt.subplots(figsize=(10, 6))
-ax.bar(x - width/2, write_times, width, label='Час запису (сек)')
-ax.bar(x + width/2, read_times, width, label='Час читання (сек)')
+ax.bar(x - width/2, write_times, width, label='Час запису (секунди)')
+ax.bar(x + width/2, read_times, width, label='Час читання (секунди)')
 
 ax.set_xlabel("Формат збереження")
 ax.set_ylabel("Час (секунди)")
